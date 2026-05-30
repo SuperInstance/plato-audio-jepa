@@ -70,6 +70,31 @@ if deadband.should_process(&spectrum) {
 }
 ```
 
+## Ecosystem
+
+plato-audio-jepa is part of the **PLATO Nervous System** — the acoustic perception layer.
+
+**Where this sits:** Layer 0 (sensor input). Produces 16-dimensional audio state vectors that flow into [plato-nervous](https://github.com/SuperInstance/plato-nervous) for RoomStateVector fusion.
+
+**Signal chain:**
+```
+Camera → plato-vision-jepa (16-dim) ─┐
+                                      ├→ plato-nervous (RoomStateVector) → distillation
+Microphone → plato-audio-jepa (16-dim)─┘
+```
+
+| Repo | Role |
+|------|------|
+| [plato-nervous](https://github.com/SuperInstance/plato-nervous) | Core signal chain — consumes audio state vectors |
+| [plato-vision-jepa](https://github.com/SuperInstance/plato-vision-jepa) | Sister crate — 16-dim vision state vectors |
+| [openconstruct-kernel](https://github.com/SuperInstance/openconstruct-kernel) | Hardware detection for microphone devices |
+| [concrete-token-demo](https://github.com/SuperInstance/concrete-token-demo) | CLI demo that can exercise audio state inputs |
+| [plato-browser](https://github.com/SuperInstance/plato-browser) | Browser demo using Web Audio API |
+| [luciddreamer-ai](https://github.com/SuperInstance/luciddreamer-ai) | Cloud-layer reactive podcast engine |
+| [hermit-crab](https://github.com/SuperInstance/hermit-crab) | Agent migration between rooms |
+
+See [DEPENDENCIES.md](./DEPENDENCIES.md) for detailed dependency and data flow information.
+
 ## License
 
 MIT
