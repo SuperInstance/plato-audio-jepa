@@ -3,7 +3,8 @@ name = "plato-audio-jepa"
 version = "0.1.0"
 edition = "2021"
 description = "Audio JEPA for PLATO nervous system — room perception from microphones"
-license = "MIT"
+license = "Apache-2.0"
+repository = "https://github.com/SuperInstance/plato-audio-jepa"
 
 [dependencies]
 serde = { version = "1", features = ["derive"] }
